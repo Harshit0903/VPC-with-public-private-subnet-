@@ -1,2 +1,2 @@
 # VPC-with-public-private-subnet-
-Created a VPC that we can use for servers in a production environment. 
+Created a VPC that we can use for servers in a production environment. To improve resiliency, I deployed the servers in two Availability Zones, by using an Auto Scaling group and an Application Load Balancer. For additional security, I deployed the servers in private subnets. The servers receive requests through the load balancer. The servers can connect to the internet by using a NAT gateway. To improve resiliency, I deployed the NAT gateway in both Availability Zones.
