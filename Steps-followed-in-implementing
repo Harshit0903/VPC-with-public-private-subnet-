@@ -1,0 +1,20 @@
+ 1. Creating the VPC
+- I navigated to the AWS VPC Console and selected "Create VPC and More."
+- I configured the VPC with the desired CIDR block, enabling both IPv4 and optionally IPv6.
+- I created public and private subnets in two Availability Zones.
+- I deployed NAT Gateways in each public subnet to enable internet access for instances in private subnets.
+- I created appropriate route tables for the public and private subnets.
+- I associated the subnets with the corresponding route tables.
+
+2. Deploying the Application
+- Created a Launch Template:
+  - I defined the instance configuration (e.g., AMI, instance type, security groups) in a launch template.
+- Set up Auto Scaling Group:
+  - I created an Auto Scaling Group using the launch template. I specified the desired number of instances and configured scaling policies to adjust the number of instances based on demand.
+- Deployed the Application Load Balancer:
+  - I created an ALB and configured listeners for HTTP and HTTPS traffic. I attached the ALB to the Auto Scaling Group to ensure traffic was distributed across the instances.
+
+ 3. Testing and Validation
+- I deployed the application and validated that traffic was properly routed through the ALB to the backend instances.
+- I used AWS Reachability Analyzer to troubleshoot and ensure all routing and security configurations were correct.
+- I tested the resiliency by simulating an AZ failure and observed how the setup maintained availability.
