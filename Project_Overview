@@ -16,3 +16,5 @@ iii)Routing:
 
 iv) Gateway VPC Endpoint:
 1) Configured for Amazon S3 access, allowing instances in the private subnets to communicate with S3 without needing a public IP address.
+
+
