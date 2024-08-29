@@ -1,0 +1,18 @@
+This project demonstrates the creation of a Virtual Private Cloud (VPC) using AWS, specifically designed for a production environment. The setup focuses on high availability and security by deploying resources across two Availability Zones (AZs). The project leverages AWS services like Auto Scaling, Application Load Balancer, and NAT Gateways to ensure both resiliency and secure internet access for instances in private subnets.
+
+Key Components:
+
+i) VPC Configuration:
+1) Subnets: The VPC is configured with both public and private subnets in two AZs. The public subnets host NAT Gateways and Load Balancer nodes, while the private subnets are used to deploy the application servers.
+2) NAT Gateways: Deployed in both AZs for redundancy, allowing instances in the private subnets to access the internet securely.
+3) Security: Security groups are configured to control inbound and outbound traffic, ensuring that only the Load Balancer can communicate with the servers on specified ports.
+
+ii) Auto Scaling and Load Balancing:
+1) Auto Scaling Group: Manages the automatic scaling of instances based on the application's demand, ensuring the application remains highly available and cost-efficient.
+2) Application Load Balancer: Distributes incoming traffic across the instances in the Auto Scaling Group, ensuring even load distribution and fault tolerance.
+
+iii)Routing:
+1) Public and private route tables are configured for both IPv4 and IPv6, with appropriate routes to the internet gateway, NAT gateway, and VPC endpoints.
+
+iv) Gateway VPC Endpoint:
+1) Configured for Amazon S3 access, allowing instances in the private subnets to communicate with S3 without needing a public IP address.
